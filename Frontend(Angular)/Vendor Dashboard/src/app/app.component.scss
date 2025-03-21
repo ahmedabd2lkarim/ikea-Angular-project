@@ -1,0 +1,16 @@
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .layout {
+    display: flex;
+    background-color: rgb(243, 239, 239);
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 0 20px;
+    width: 100%;
+  }
+  

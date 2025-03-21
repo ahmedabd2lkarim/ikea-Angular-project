@@ -1,0 +1,100 @@
+
+.main{
+  width: 100%;
+}
+.main-top{
+  width: 100%;
+  background: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgb(43, 43, 43);
+}
+.main-body{
+  padding: 10px 10px 10px 20px;
+}
+h1{
+  margin: 20px 10px;
+}
+.search_bar{
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+.search_bar input{
+  // width: 50%;
+  padding: 10px;
+  border: 1px solid rgb(190, 190, 190);
+  outline: 0;
+}
+.search_bar input:focus{
+  border: 1px solid blueviolet;
+}
+.search_bar select{
+  border: 1px solid rgb(190, 190, 190);
+  padding: 10px;
+  margin-left: 2rem;
+}
+.search_bar .filter{
+  width: 300px;
+}
+
+.row{
+  display: flex;
+  padding: 10px;
+  margin-top: 1.3rem;
+  justify-content: space-between;
+}
+.row p{
+  color: rgb(54, 54, 54);
+  font-size: 15px;
+}
+.row p span{
+  color: blueviolet;
+}
+
+
+.product_card{
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  border-radius: 10px;
+  background: #fff;
+  margin-bottom: 15px;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid rgb(190, 190, 190);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+.product_details{
+  display: flex;
+}
+.product_details .img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product_details .img i{
+  width: 70px;
+  font-size: 3rem;
+  margin-left: 1rem;
+  padding: 10px;
+  color: rgb(82, 22, 138);
+  background: rgb(216, 205, 226);
+}
+.product_details .text{
+  margin-left: 2.3rem;
+}
+.product_details .text span{
+  color: rgb(116, 112, 112);
+}
+.product_salary{
+  text-align: right;
+  color: rgb(54, 54, 54);
+}
+.product_card:hover{
+  border: 2px solid blueviolet;
+  transition: 0.1s;
+}

@@ -1,0 +1,77 @@
+.status {
+    padding: 10px 15px;
+    border-radius: 20px;
+
+    &.processing {
+        background-color: rgb(220, 220, 255);
+        color: blue;
+    }
+
+    &.pending {
+        background-color: rgb(246, 233, 209);
+        color: orange;
+    }
+
+    &.cancelled {
+        background-color: rgb(251, 225, 225);
+        color: red;
+    }
+
+    &.shipped {
+        background-color: rgb(233, 250, 243);
+        color: rgb(105, 220, 175);
+    }
+
+    &.delivered {
+        background-color: rgb(198, 247, 198);
+        color: darkgreen;
+    }
+}
+
+.demo-table {
+    width: 100%;
+    vertical-align: middle;
+    th {
+        color: rgb(173, 172, 172);
+        border-bottom: 0px;
+        background-color: rgb(242, 240, 240);
+    }
+
+    td {
+        padding: 16px;
+    }
+}
+
+.mat-mdc-row .mat-mdc-cell {
+    border-bottom: 5px solid rgb(242, 240, 240);
+}
+
+.table-responsive {
+    overflow-x: auto;
+  }
+
+@media (max-width: 768px) {
+    .demo-table {
+        th {
+            font-size: 10px;
+        }
+
+        td {
+            font-size: 10px;
+        }
+    }
+
+    .status {
+        padding: 5px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 5px ;
+    }
+}
+
+.container {
+    background-color: white;
+    border-radius: 10px;
+}

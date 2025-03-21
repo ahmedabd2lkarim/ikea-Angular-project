@@ -1,0 +1,77 @@
+<div class="container">
+
+    <h3>Order Details /<span class="fs-5" style="color: rgb(145, 213, 236);"> #{{orderId?.substring(20)}}</span></h3>
+    <div class="card-group">
+        <div class="card my-3">
+            <div class="card-header border-0">
+                <h5>Order Information</h5>
+            </div>
+            <div class="card-body d-flex justify-content-between px-4">
+                <div >
+                    <p class="orderHeader">GENERAL</p>
+                    <div class="general">
+                        <p >Payment via: {{order?.paymentMethod|uppercase}}</p>
+                        <p >Date: {{order?.createdAt|date:'mediumDate'}}</p>
+                        <p >Status: <span class="status" [class]='order?.status'>{{order?.status}}</span></p>
+                    </div>
+                </div>
+                <div>
+                    <p class="orderHeader">BILLING</p>
+                    <div>
+                        <p>{{order?.userID.name}}</p>
+                        <p>{{order?.userID.homeAddress}}</p>
+                        <p>{{order?.userID.email}}</p>
+                        <p>{{order?.userID.mobileNumber}}</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="orderHeader">SHIPPING</p>
+                    <div>
+                        <p>{{order?.userID.name}}</p>
+                        <p>{{order?.userID.homeAddress}}</p>
+                    </div>
+                </div>
+            </div>
+            <hr style="border: 1px solid rgb(139, 139, 139);" class="m-3">
+            <div class="card-header border-0 bg-white">
+                <h5 >Order Items</h5>
+            </div>
+            <div class="card-body">
+                <table class=" table ">
+                    <thead>
+                        <tr class="table-light">
+                            <th scope="col">Item</th>
+                            <th scope="col">Cost</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       @for (prd of items; track $index) {
+                           <tr> 
+                               <td><img [src]="prd.prdID.image" alt="product image" class="img-fluid me-2" style="width: 30px;">{{prd.prdID.name}}</td>
+                               <td>{{prd.prdID.price.currentPrice}}</td>
+                               <td>x {{prd.quantity}}</td>
+                               <td>{{prd.quantity*prd.prdID.price.currentPrice}}</td>
+                           </tr>
+                       }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="order-total border my-3 h-100">
+            <div class="pt-2 px-3" >
+                <p class="orderHeader">ORDER TOTALS</p>
+                <h5>{{order?.subTotal|currency}}</h5>
+            </div>
+            <hr style="border: 1px solid rgb(139, 139, 139);" class="m-3">
+            <div class="pt-2 px-3" >
+                <p class="orderHeader">Add note <i class="fa-solid fa-circle-question"></i></p>
+                <textarea rows="2" class="w-100" #textArea></textarea>
+                <button class="btn btn-secondary my-3" (click)="textArea.value=''">Add</button>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
