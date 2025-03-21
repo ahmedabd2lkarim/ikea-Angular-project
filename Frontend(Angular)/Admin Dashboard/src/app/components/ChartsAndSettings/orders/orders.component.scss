@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  .content {
+    padding: 20px;
+    background: #f8f9fa;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-spacing: 0 10px;
+  
+    th, td {
+      padding: 10px;
+      text-align: left;
+      white-space: nowrap; 
+    }
+  
+    .mat-header-cell {
+      font-weight: bold;
+      background: #e9ecef;
+      padding: 15px;
+    }
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .status-chip {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    color: white;
+  
+    &.pending {
+      background: #ffcc00;
+    }
+  
+    &.paid {
+      background: #99ddff;
+    }
+  
+    &.delivered {
+      background: #28a745;
+    }
+  
+    &.failed {
+      background: #dc3545;
+    }
+  
+    &.canceled {
+      background: #ffdd99;
+    }
+  }
+  
+  .status-dropdown {
+    width: 160px;
+  
+    .mat-select-value {
+      background-color: #0057ff !important;
+      display: flex;
+      align-items: center;
+    }
+  
+    .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mat-mdc-notch-piece {
+      border: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 14px !important;
+      font-weight: bold !important;
+      text-align: center !important;
+      color: white !important;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .content {
+      padding: 10px;
+    }
+  
+    .status-dropdown {
+      width: 100%;
+    }
+  
+    .table {
+      font-size: 14px;
+    }
+  
+    .user-info {
+      display: block;
+      text-align: center;
+    }
+  }
+  
+  

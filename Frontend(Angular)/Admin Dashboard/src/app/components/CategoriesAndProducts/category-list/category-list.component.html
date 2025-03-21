@@ -1,0 +1,40 @@
+<div class="container-fluid rounded bg-light shadow p-5 my-5">
+  <h2 class="text-center fs-1 fw-bold text-primary mb-4 py-2">Category Management</h2>
+
+  <app-category-search (searchEvent)="searchCategories($event)"></app-category-search>
+
+  <!-- Add Category Button -->
+  <button class="btn btn-success mb-3" (click)="navigateToAddCategory()">+ Add New Category</button>
+
+  <!-- Responsive Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover text-center">
+      <thead class="table-primary">
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (category of filteredCategories; track category._id) {
+          <tr>
+            <td>{{ category.name }}</td>
+            <td>
+              <img [src]="category.image" alt="Category Image" class="category-img img-fluid">
+            </td>
+            <td>{{ category.createdAt | date:'medium' }}</td>
+            <td>{{ category.updatedAt | date:'medium' }}</td>
+            <td>
+              <button class="btn btn-primary btn-sm me-2" (click)="navigateToUpdateCategory(category._id!)">Edit</button>
+              <button class="btn btn-danger btn-sm me-2" (click)="deleteCategory(category._id!)">Delete</button>
+              <button class="btn btn-info btn-sm" (click)="viewProducts(category._id!)">View Products</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

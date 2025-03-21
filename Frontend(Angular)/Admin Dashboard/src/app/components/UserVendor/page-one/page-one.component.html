@@ -1,0 +1,121 @@
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Users and Vendors Management</h1>
+
+    <div class="d-flex justify-content-center mb-4">
+        <button class="btn btn-info me-2" (click)="getUsers()">Show Users</button>
+        <button class="btn btn-info" (click)="getVendors()">Show Vendors</button>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search by name, email, or store name..." (input)="filterList()">
+        </div>
+        <div class="col-md-3">
+            <select class="form-select" [(ngModel)]="filterType" (change)="filterList()">
+                <option value="all">All</option>
+                <option value="users">Users</option>
+                <option value="vendors">Vendors</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+
+<div class="col-md-6" *ngIf="filterType === 'users' || filterType === 'all'">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Users</h4>
+        </div>
+        <div class="card-body">
+            <div *ngFor="let user of filteredUsers" class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Name:</strong> {{ user.name }}</h5>
+                    <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+                    <p class="card-text"><strong>Address:</strong> {{ user.homeAddress }}</p>
+                    <p class="card-text"><strong>Mobile:</strong> {{ user.mobileNumber }}</p>
+
+                    <div class="d-flex">
+                        <button class="btn btn-warning btn-sm me-2" (click)="toggleDropdown(user)">Edit</button>
+                        <button class="btn btn-danger btn-sm" (click)="deleteUser(user._id)">Delete</button>
+                    </div>
+
+                    <div *ngIf="selectedUser && selectedUser._id === user._id" class="mt-3">
+                        <label class="form-label">Name:
+                            <input class="form-control" [(ngModel)]="selectedUser.name">
+                        </label>
+                        <label class="form-label">Email:
+                            <input class="form-control" [(ngModel)]="selectedUser.email">
+                        </label>
+                        <label class="form-label">Address:
+                            <input class="form-control" [(ngModel)]="selectedUser.homeAddress">
+                        </label>
+                        <label class="form-label">Mobile:
+                            <input class="form-control" [(ngModel)]="selectedUser.mobileNumber">
+                        </label>
+
+                        <div class="d-flex mt-2">
+                            <button class="btn btn-success btn-sm me-2" (click)="updateUser()">Save</button>
+                            <button class="btn btn-secondary btn-sm" (click)="closeDropdown()">Cancel</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="col-md-6" *ngIf="filterType === 'vendors' || filterType === 'all'">
+    <div class="card shadow">
+        <div class="card-header bg-success text-white">
+            <h4 class="mb-0">Vendors</h4>
+        </div>
+        <div class="card-body">
+            <div *ngFor="let vendor of filteredVendors" class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Name:</strong> {{ vendor.name }}</h5>
+                    <p class="card-text"><strong>Email:</strong> {{ vendor.email }}</p>
+                    <p class="card-text"><strong>Store Name:</strong> {{ vendor.storeName }}</p>
+                    <p class="card-text"><strong>Store Address:</strong> {{ vendor.storeAddress }}</p>
+                    <p class="card-text"><strong>Mobile:</strong> {{ vendor.mobileNumber }}</p>
+
+                    <div class="d-flex">
+                        <button class="btn btn-warning btn-sm me-2" *ngIf="vendor.isAccepted" (click)="toggleDropdownv(vendor)">Edit</button>
+                        <button class="btn btn-danger btn-sm me-2" *ngIf="vendor.isAccepted" (click)="deleteVendor(vendor._id)">Delete</button>
+                        <button class="btn btn-success btn-sm" *ngIf="!vendor.isAccepted" (click)="acceptVendor(vendor._id)">Accept</button>
+                    </div>
+
+                    <div *ngIf="selectedVendor && selectedVendor._id === vendor._id" class="mt-3">
+                        <label class="form-label">Name:
+                            <input class="form-control" [(ngModel)]="selectedVendor.name">
+                        </label>
+                        <label class="form-label">Email:
+                            <input class="form-control" [(ngModel)]="selectedVendor.email">
+                        </label>
+                        <label class="form-label">Mobile:
+                            <input class="form-control" [(ngModel)]="selectedVendor.mobileNumber">
+                        </label>
+                        <label class="form-label">Store Name:
+                            <input class="form-control" [(ngModel)]="selectedVendor.storeName">
+                        </label>
+                        <label class="form-label">Store Address:
+                            <input class="form-control" [(ngModel)]="selectedVendor.storeAddress">
+                        </label>
+
+                        <div class="d-flex mt-2">
+                            <button class="btn btn-success btn-sm me-2" (click)="updateVendor()">Save</button>
+                            <button class="btn btn-secondary btn-sm" (click)="closeDropdownv()">Cancel</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+</div>

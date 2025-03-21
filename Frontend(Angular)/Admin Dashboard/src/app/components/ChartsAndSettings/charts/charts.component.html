@@ -1,0 +1,21 @@
+
+
+<div class="chart-container">
+    <div id="chart1" *ngIf="chartOptions1">
+      <apx-chart [series]="chartOptions1.series" [chart]="chartOptions1.chart" [xaxis]="chartOptions1.xaxis"
+        [stroke]="chartOptions1.stroke" [dataLabels]="chartOptions1.dataLabels" [yaxis]="chartOptions1.yaxis"
+        [title]="chartOptions1.title" [legend]="chartOptions1.legend" [fill]="chartOptions1.fill" [colors]="chartOptions1.colors">
+      </apx-chart>
+    </div>
+
+    <div id="chart" *ngIf="chartOptions2" else loadingTemplate>
+      <apx-chart [series]="chartOptions2.series" [chart]="chartOptions2.chart" [labels]="chartOptions2.labels"
+        [colors]="chartOptions2.colors" [plotOptions]="chartOptions2.plotOptions" [legend]="chartOptions2.legend"
+        [fill]="chartOptions2.fill" [dataLabels]="chartOptions2.dataLabels">
+      </apx-chart>
+    </div>
+    <ng-template #loadingTemplate>
+      
+    </ng-template>
+  </div>
+  

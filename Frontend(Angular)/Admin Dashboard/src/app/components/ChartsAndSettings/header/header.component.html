@@ -1,0 +1,30 @@
+<div class="inside">
+    <div class="dropdown" >
+        <button class="btn  btn-outline-dark btn-drop" type="button" data-bs-toggle="dropdown">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <ul class="dropdown-menu ">
+            <li><a class="dropdown-item" routerLink="categories" routerLinkActive="active">Inventory</a></li>
+            <li><a class="dropdown-item" routerLink="dashboard" routerLinkActive="active">Charts</a></li>
+            <li><a class="dropdown-item" routerLink="Control">User&Vendor Management</a></li>
+            <li><a class="dropdown-item" routerLink="Settings">Settings</a></li>
+
+          
+        </ul>
+    </div>
+    <nav class="navbar navbar-light navbar-custom">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <span class="navbar-brand">{{ pageTitle }}</span>
+
+            
+  
+            <div class="d-flex align-items-center">
+                <span class="navbar-text me-3">Hi, {{ adminName }}</span>
+            </div>
+        </div>
+    </nav>
+  
+    <button class="btn btn-outline-dark btn-logout" (click)="logout()">Logout</button>
+    
+  </div>
+  

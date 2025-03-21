@@ -1,0 +1,42 @@
+@import "bootstrap/scss/bootstrap";
+
+.status-dropdown {
+    width: 160px;
+    
+  
+    .mat-mdc-select-trigger {
+ 
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: lighter;
+      text-align: center !important;
+      color: rgb(0, 0, 0) !important;
+    }
+  
+    .mdc-line-ripple {
+      display: none !important;
+    }
+  }
+  
+  .pending .mat-mdc-select-trigger { background-color: #ffcc00; color: black; } 
+  .failed .mat-mdc-select-trigger { background-color: #ff9999; color: black; }
+  .paid .mat-mdc-select-trigger { background-color: #99ddff; color: black; }
+  .delivered .mat-mdc-select-trigger { background-color: #99ff99; color: black; } 
+  .canceled .mat-mdc-select-trigger { background-color: #ffdd99; color: black; }
+ 
+
+  .mat-mdc-table>thead{
+    background-color: white !important;
+    border-radius: 10px !important;
+   
+
+  }
+  .apexcharts-canvas {
+    touch-action: none;
+    overflow: hidden;
+}
+
+.sortable-handler {
+  touch-action: none;
+}

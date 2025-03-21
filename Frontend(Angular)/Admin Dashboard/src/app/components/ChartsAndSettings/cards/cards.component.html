@@ -1,0 +1,13 @@
+
+<div cdkDropList cdkDropListOrientation="horizontal" class="cards-container1" (cdkDropListDropped)="drop($event)">
+    @for (block of blocks; track block) {
+    <div class="card1 example-box" [ngStyle]="{ 'background': block.gradient }" cdkDrag>
+      <div class="card-icon">
+        <mat-icon *ngIf="block.icon">{{ block.icon }}</mat-icon> 
+      </div>
+      <div class="card-content">
+        <span [innerHTML]="block.text"></span>
+      </div>
+    </div>
+    }
+  </div>

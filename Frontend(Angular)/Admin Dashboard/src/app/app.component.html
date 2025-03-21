@@ -1,0 +1,26 @@
+<div class="layout">
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a routerLink="categories" routerLinkActive="active"><mat-icon>dashboard</mat-icon>Inventory </a></li>
+                <li><a routerLink="dashboard" routerLinkActive="active"><mat-icon>show_chart</mat-icon> Charts</a></li>
+                <li><a routerLink="Control" routerLinkActive="active"><mat-icon>assignment</mat-icon>User & Vendor Management </a></li>
+                <li><a routerLink="Settings" routerLinkActive="active"><mat-icon>settings</mat-icon> Settings</a></li>
+            </ul>
+        </mat-sidenav>
+    </mat-sidenav-container>
+    
+
+    <div class="main-content">
+      <app-header></app-header>
+
+
+        
+        <router-outlet></router-outlet>
+
+       
+    </div>
+</div>
+
+

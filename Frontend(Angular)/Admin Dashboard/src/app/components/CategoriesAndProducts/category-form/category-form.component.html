@@ -1,0 +1,72 @@
+<div class="container  mt-4 category-form">
+  <div class="text-center mb-4 fs-1 fw-bold text-primary">{{ categoryId ? 'Edit Category' : 'Add Category' }}</div>
+
+  <!-- Success/Error Message -->
+@if (message) {
+  <div class="alert text-center" [ngClass]="message.includes('successfully') ? 'alert-success' : 'alert-danger'">
+    {{ message }}
+  </div>
+}
+
+
+  <form [formGroup]="categoryForm" (ngSubmit)="saveCategory()" class="p-4 border rounded bg-light shadow">
+    <!-- Category Name -->
+    <div class="mb-3">
+      <label for="categoryName" class="form-label fw-bold">Category Name</label>
+      <input type="text" id="categoryName" class="form-control" formControlName="name" />
+
+      <!-- Validation Errors -->
+      @if (name?.invalid && name?.touched) {
+        <div class="text-danger small my-2  fw-bold">
+          @if (name?.errors?.['required']) {
+            <div>Category name is required.</div>
+          }
+          @if (name?.errors?.['minlength']) {
+            <div>Must be at least 3 characters long.</div>
+          }
+          @if (name?.errors?.['maxlength']) {
+            <div>Must be at most 15 characters long.</div>
+          }
+          @if (name?.errors?.['pattern']) {
+            <div>Must be string.</div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Category Image -->
+    <div class="mb-3">
+      <label for="categoryImage" class="form-label fw-bold">Category Image URL</label>
+      <div class="input-group">
+        <input type="text" id="categoryImage" class="form-control" formControlName="image" />
+        <span class="input-group-text"><i class="fa-solid fa-image"></i></span>
+      </div>
+
+      <!-- Validation Errors -->
+      @if (image?.invalid && image?.touched) {
+        <div class="text-danger small my-2 fw-bold">
+          @if (image?.errors?.['required']) {
+            <div>Image URL is required.</div>
+          }
+          @if (image?.errors?.['pattern']) {
+            <div>Invalid image URL.</div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Image Preview -->
+    @if (categoryForm.value.image) {
+      <div class="text-center mt-3">
+        <p class="fw-bold">Image Preview:</p>
+        <img [src]="categoryForm.value.image" alt="Category Image" class="img-thumbnail w-50"/>
+      </div>
+    }
+
+    <!-- Buttons -->
+    <div class="d-flex justify-content-between mt-4">
+      <button type="submit" class="btn btn-success" [disabled]="categoryForm.invalid">Save Category</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

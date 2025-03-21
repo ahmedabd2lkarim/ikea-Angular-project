@@ -1,0 +1,76 @@
+<mat-card class="profile-container">
+    <div class="profile-header">
+      <div class="user-info">
+        <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg" alt="User Avatar" class="user-avatar">
+        <div *ngIf="!isLoading; else loading">
+          <h2>{{ adminData?.name }}</h2>
+          <p>{{ adminData?.email }}</p>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" (click)="toggleEditMode()">
+        {{ isEditing ? 'Cancel' : 'Edit' }}
+      </button>
+    </div>
+  
+    <ng-template #loading>
+      <mat-spinner></mat-spinner>
+    </ng-template>
+  
+    <div *ngIf="!isEditing" class="profile-details">
+      <mat-list>
+        <mat-list-item>
+          <strong>Email:</strong> {{ adminData?.email }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Phone:</strong> {{ adminData?.mobileNumber }}
+        </mat-list-item>
+        <mat-list-item>
+          <strong>Home Address:</strong> {{ adminData?.homeAddress }}
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    
+  
+    <form *ngIf="isEditing" [formGroup]="adminForm" (ngSubmit)="updateProfile()" class="p-4">
+      <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control form-control-lg border-0 rounded-pill w-100 shadow-sm" formControlName="name">
+      </div>
+    
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control form-control-lg border-0 rounded-pill w-100 shadow-sm" formControlName="email">
+      </div>
+    
+      <div class="mb-3">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" class="form-control form-control-lg border-0 rounded-pill w-100 shadow-sm" formControlName="mobileNumber">
+      </div>
+    
+      <div class="mb-3">
+        <label class="form-label">Home Address</label>
+        <textarea class="form-control form-control-lg border-0 rounded-pill w-100 shadow-sm" formControlName="homeAddress"></textarea>
+      </div>
+    
+      <div class="password-section">
+        <h3 class="mb-3">Change Password</h3>
+    
+        <div class="mb-3">
+          <label class="form-label">Current Password</label>
+          <input type="password" class="form-control form-control-lg border-0 rounded-pill w-100 shadow-sm" formControlName="currentPassword">
+        </div>
+    
+        <div class="mb-3">
+          <label class="form-label">New Password</label>
+          <input type="password" class="form-control form-control-lg border-0 rounded-pill w-100 shadow-sm" formControlName="newPassword">
+        </div>
+      </div>
+    
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-danger px-4 py-2 rounded-pill" (click)="toggleEditMode()">Cancel</button>
+        <button type="submit" class="btn btn-primary px-4 py-2 rounded-pill" [disabled]="adminForm.invalid">Save</button>
+      </div>
+    </form>
+    
+  
