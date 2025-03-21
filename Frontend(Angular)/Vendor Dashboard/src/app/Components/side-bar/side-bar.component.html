@@ -1,0 +1,12 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="sidebar">
+        <img src="https://www.ikea.com/global/assets/logos/brand/ikea.svg" alt="Store Logo" class=" mx-auto d-block" style="width: 70%" /> 
+        <ul>
+            <li><a routerLink="/dashboard" routerLinkActive="active"><mat-icon>dashboard</mat-icon>Dashboard </a></li>
+            <li><a routerLink="/products/vendorPros" routerLinkActive="active"><mat-icon>inventory_2</mat-icon>Products</a></li>
+            <li><a routerLink="vendor-orders" routerLinkActive="active"><mat-icon>assignment</mat-icon>Orders</a></li>
+            <li><a routerLink="vendor-profile" routerLinkActive="active"><mat-icon>settings</mat-icon> Settings</a></li>
+
+        </ul>
+    </mat-sidenav>
+</mat-sidenav-container>

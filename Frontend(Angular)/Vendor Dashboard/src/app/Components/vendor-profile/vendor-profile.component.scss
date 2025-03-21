@@ -1,0 +1,26 @@
+label{
+    color: rgb(135, 133, 133);
+    width: 15%;
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+label,span{
+    font-size: 17px;
+}
+.editButton{
+    padding: 0 15px;
+    margin: auto 35px;
+    
+}
+@media (max-width: 426px)  {
+    label,span{
+        font-size: 14px;
+        width: 50%;
+    }
+    .editButton{
+        font-size: 14px;
+    }
+    
+}
