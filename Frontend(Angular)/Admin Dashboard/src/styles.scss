@@ -19,11 +19,11 @@
     }
   }
   
-  .pending .mat-mdc-select-trigger { background-color: #ffcc00; color: black; } 
-  .failed .mat-mdc-select-trigger { background-color: #ff9999; color: black; }
-  .paid .mat-mdc-select-trigger { background-color: #99ddff; color: black; }
+.shipped .mat-mdc-select-trigger { background-color: #ffcc00; color: black; } 
+  .cancelled .mat-mdc-select-trigger { background-color: #ff9999; color: black; }
+  .processing .mat-mdc-select-trigger { background-color: #99ddff; color: black; }
   .delivered .mat-mdc-select-trigger { background-color: #99ff99; color: black; } 
-  .canceled .mat-mdc-select-trigger { background-color: #ffdd99; color: black; }
+  .pending .mat-mdc-select-trigger { background-color: #ffdd99; color: black; }
  
 
   .mat-mdc-table>thead{
