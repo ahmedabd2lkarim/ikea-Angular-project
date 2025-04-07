@@ -23,11 +23,11 @@ toggleSidebar() {
   orders: any[] = [];
   displayedColumns: string[] = ['id', 'user', 'total', 'status'];
   statusOptions = [
-    { value: 'pending', label: 'Pending' },
-    { value: 'failed', label: 'Failed' },
-    { value: 'paid', label: 'Paid' },
+   { value: 'pending', label: 'Pending' },
+    { value: 'shipped', label: 'Shipped' },
+    { value: 'processing', label: 'Processing' },
     { value: 'delivered', label: 'Delivered' },
-    { value: 'canceled', label: 'Cancelled' }
+    { value: 'cancelled', label: 'Cancelled' }
   ];
   
 
@@ -61,10 +61,10 @@ toggleSidebar() {
   getStatusClass(status: string): string {
     switch (status) {
       case 'pending': return 'pending';
-      case 'failed': return 'failed';
-      case 'paid': return 'paid';
+      case 'processing': return 'processing';
+      case 'shipped': return 'shipped';
       case 'delivered': return 'delivered';
-      case 'canceled': return 'canceled';
+      case 'cancelled': return 'cancelled';
       default: return '';
     }
   }
