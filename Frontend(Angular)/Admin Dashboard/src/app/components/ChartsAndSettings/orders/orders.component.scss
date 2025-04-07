@@ -47,10 +47,10 @@
     color: white;
   
     &.pending {
-      background: #ffcc00;
+      background: #ffdd99;
     }
   
-    &.paid {
+    &.processing {
       background: #99ddff;
     }
   
@@ -58,12 +58,13 @@
       background: #28a745;
     }
   
-    &.failed {
-      background: #dc3545;
+    &.shipped {
+      background: #ffcc00;
     }
   
-    &.canceled {
-      background: #ffdd99;
+    &.cancelled {
+      background: #dc3545;
+
     }
   }
   
