@@ -40,6 +40,8 @@ export class OrdersComponent {
         }
         console.log(data)
         this.orders = data;
+        console.log('Orders loaded:', this.orders);
+        
       },
       error: (err) => console.error('Error fetching orders:', err)
     });

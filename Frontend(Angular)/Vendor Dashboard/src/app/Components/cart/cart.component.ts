@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   selector: 'app-cart',
   imports: [MatTableModule,CommonModule,MatSortModule],
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss'
+  styleUrl: './cart.component.scss',
 })
 export class CartComponent implements OnInit ,AfterViewInit{
   private _liveAnnouncer = inject(LiveAnnouncer);

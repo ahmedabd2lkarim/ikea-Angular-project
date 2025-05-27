@@ -57,6 +57,7 @@ export class PageOneComponent {
       },
       (error) => console.error('Error fetching vendors:', error)
     );
+    
   }
   
 

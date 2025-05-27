@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrderService {
-  private apiUrl = 'http://localhost:5000/api/cart';
+  private apiUrl = 'http://localhost:5000/api/orders';
   private apiUrl2 = 'http://localhost:5000/api/dashboard/get-details';
 
   private dashboard = 'http://localhost:5000/api/dashboard';
@@ -28,7 +28,7 @@ export class OrderService {
 
   getAllOrders(): Observable<any> {
 
-    console.log(this.http.get(`${this.apiUrl2}`, this.getHeaders()));
+    // console.log(this.http.get(`${this.apiUrl2}`, this.getHeaders()));
     
     
     return this.http.get(`${this.apiUrl2}`, this.getHeaders());
